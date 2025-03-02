@@ -3,6 +3,8 @@ import 'package:mhrms/screens/profile.dart';
 import 'screens/Stats_Screen/activePersonnel_screen.dart';
 import 'screens/Stats_Screen/deployedPersonnel_screen.dart';
 import 'screens/Stats_Screen/onleavepage_screen.dart';
+import 'screens/Stats_Screen/newrecuriters_screen.dart';
+import 'screens/Stats_Screen/weapon_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -85,6 +87,16 @@ class MilitaryHRDashboard extends StatelessWidget {
               title: const Text('Training & Skills'),
               onTap: () {},
             ),
+            ListTile(
+              leading: const Icon(Icons.bolt),
+              title: const Text('Weapon Management'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const WeaponManagementPage()),
+                );
+              },
+            ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.settings),
@@ -126,7 +138,7 @@ class MilitaryHRDashboard extends StatelessWidget {
                 _buildStatsCard('Currently Deployed', Icons.flight_takeoff, context),
                 _buildStatsCard('On Leave', Icons.event_busy, context),
                 _buildStatsCard('New Recruits', Icons.person_add, context),
-                _buildStatsCard('Weapon Management', Icons.bolt, context),
+                _buildStatsCard('Weapon MGMT', Icons.bolt, context),
               ],
             ),
 
@@ -237,7 +249,7 @@ class MilitaryHRDashboard extends StatelessWidget {
               MaterialPageRoute(builder: (context) => NewRecruitsPage()),
             );
             break;
-          case 'Weapon Management':
+          case 'Weapon MGMT':
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => WeaponManagementPage()),
